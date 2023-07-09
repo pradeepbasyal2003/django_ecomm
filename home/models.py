@@ -59,3 +59,12 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class CustumerReview(models.Model):
+    name = models.CharField(max_length = 300)
+    comment = models.TextField(blank = True)
+    post = models.CharField(max_length=300)
+    image = models.ImageField(upload_to='media')
+    def __str__(self):
+        return self.name
