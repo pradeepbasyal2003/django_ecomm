@@ -12,4 +12,7 @@ class HomeView(Base):
         self.views['brands'] = Brand.objects.all()
         self.views['sliders'] = Slider.objects.all()
         self.views['reviews'] = CustumerReview.objects.all()
+        self.views['hots'] = Product.objects.filter(labels = 'hot')
+        self.views['news'] = Product.objects.filter(labels = 'new')
+
         return render(request,'index.html',self.views)
