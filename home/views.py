@@ -32,9 +32,16 @@ class BrandView(Base):
 
     def get(self,request,slug):
         brand_id = Brand.objects.get(slug = slug).id
-        self.views['brand_products'] = Brand.objects.filter(brand_id = brand_id)
+        self.views['brand_products'] = Product.objects.filter(brand_id = brand_id)
         self.views['categories'] = Category.objects.all()
         self.views['brands'] = Brand.objects.all()
         self.views['sales'] = Product.objects.filter(labels='sale')
 
         return render(request , 'brand.html' ,self.views)
+
+
+class ProductDetail(Base):
+
+    def get(self,request,slug):
+        self.views['product_detail'] = Product.objects.filter(slug = slug)
+        return render(request,'product_detail.html',self.views)
