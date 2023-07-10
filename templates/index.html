@@ -11,7 +11,7 @@
                             <ul class="navbar-nav">
                                 {%for cat in categories%}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"><i class="fa fa-{{cat.logo}}"></i>{{cat.name}}</a>
+                                    <a class="nav-link" href="/category/{{cat.slug}}"><i class="fa fa-{{cat.logo}}"></i>{{cat.name}}</a>
                                 </li>
                                 {%endfor%}
                             </ul>
@@ -65,7 +65,8 @@
             <div class="container-fluid">
                 <div class="brand-slider">
                     {%for brand in brands %}
-                    <div class="brand-item"><img src="{{brand.image.url}}" alt=""></div>
+                    <a href="{{/brand/{{brand.slug}}"><div class="brand-item"><img src="{{brand.image.url}}" alt=""></div></a>
+
                     {%endfor%}
                 </div>
             </div>
