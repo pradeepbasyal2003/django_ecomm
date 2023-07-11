@@ -44,4 +44,6 @@ class ProductDetail(Base):
 
     def get(self,request,slug):
         self.views['product_detail'] = Product.objects.filter(slug = slug)
-        return render(request,'product_detail.html',self.views)
+        product_category = Product.objects.get(slug=slug).category_id
+        self.views['related_products'] = Product.objects.filter(category_id = product_category)
+        return render(request,'product-detail.html',self.views)
