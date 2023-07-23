@@ -99,5 +99,9 @@ def signup(request):
 class CartView(Base):
 
     def get(self,request):
-
+        username = request.user.username
+        self.views['my_cart'] = Cart.objects.filter(username = username)
         return render(request,'cart.html',self.views)
+
+
+def add_to_cart(request,slug):
