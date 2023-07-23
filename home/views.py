@@ -95,3 +95,9 @@ def signup(request):
             messages.error(request , " the passwords do no match.")
             return redirect('/signup')
     return render(request,'signup.html')
+
+class CartView(Base):
+
+    def get(self,request):
+
+        return render(request,'cart.html',self.views)
